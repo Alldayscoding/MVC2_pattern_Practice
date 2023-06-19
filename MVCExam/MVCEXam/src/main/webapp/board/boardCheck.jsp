@@ -20,8 +20,7 @@
                 <td><input type="password" name="pass" size="20"></td>
             </tr>
         </table>
-        <br> <input type="submit" value=" 확 인 "
-                    onclick="return passCheck()"> <br>
+        <br> <input type="submit" value=" 확 인 " onclick="return passCheck()"> <br>
         <br>${message}
     </form>
 </div>

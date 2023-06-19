@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardDAO {
- //CRUD 여기다가
+    //CRUD 여기다가
     private static BoardDAO instance = new BoardDAO();
     private BoardDAO(){}
     public static BoardDAO getInstance() {return instance;}
@@ -52,7 +52,7 @@ public class BoardDAO {
     }
 
     public int inserBoard(BoardVO bVo) {
-    int result =0;
+        int result =0;
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -110,7 +110,7 @@ public class BoardDAO {
             DBManager.close(conn,pstmt,rs);
         }
 
-    return bVo;
+        return bVo;
     }
 
     public void updateReadCount(int movieKey) {
@@ -194,5 +194,26 @@ public class BoardDAO {
         }
 
 
+    }
+
+    public void deleteBoard(String num) {
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs =null;
+        String sql = "DELETE from BOARD where num=?";
+
+        try {
+
+            conn= DBManager.getConnection();
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1,Integer.parseInt(num));
+            rs = pstmt.executeQuery();
+
+        }catch ( Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn,pstmt);
+        }
     }
 }

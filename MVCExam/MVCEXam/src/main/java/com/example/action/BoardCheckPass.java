@@ -12,7 +12,7 @@ import java.io.IOException;
 public class BoardCheckPass implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String url = "board/checkSuccess.jsp";
+        String url = null;
         String num = request.getParameter("num");
         String password = request.getParameter("pass");
 
